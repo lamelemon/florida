@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://3txm74cdosxb"]
+
+[ext_resource type="Script" uid="uid://dl8w0lirjmxao" path="res://Scripts/vihut.gd" id="1_uvhfp"]
+[ext_resource type="Texture2D" uid="uid://b78w4xvccbqfn" path="res://sprites/mafiatyyppi2.0.png" id="2_svep6"]
+[ext_resource type="PackedScene" uid="uid://dhbrhygy30jex" path="res://Scenes/killzone.tscn" id="3_xcqu1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngw11"]
+size = Vector2(31, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5f31"]
+size = Vector2(30, 58)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_uvhfp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-10, -6)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_svep6")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_ngw11")
+
+[node name="killzone" parent="." instance=ExtResource("3_xcqu1")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="killzone"]
+visible = false
+shape = SubResource("RectangleShape2D_u5f31")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbxbr3m5dqd4v"]
+
+[ext_resource type="Script" uid="uid://dstlb7wev6bwi" path="res://Scripts/Playercontroller.gd" id="1_hltnp"]
+[ext_resource type="Texture2D" uid="uid://chd24qyar1t2j" path="res://sprites/Leonardo_Lightning_2d_pixel_game_character_called_wolfman_joe_0.png" id="2_xmkcj"]
+
+[sub_resource type="Curve" id="Curve_rfwbg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.208791), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k64pe"]
+size = Vector2(12, 20)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_hltnp")
+dash_curve = SubResource("Curve_rfwbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_k64pe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0263158, 0.0325521)
+texture = ExtResource("2_xmkcj")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]

@@ -1,0 +1,210 @@
+[gd_scene load_steps=21 format=3 uid="uid://duchx2crplft4"]
+
+[ext_resource type="PackedScene" uid="uid://dbxbr3m5dqd4v" path="res://Scenes/player.tscn" id="1_dtpvx"]
+[ext_resource type="Texture2D" uid="uid://b746a5658nxka" path="res://sprites/Leonardo_Lightning_2d_pixel_big_city_rooftops_platformer_game_3 copy.jpg" id="2_yqit6"]
+[ext_resource type="PackedScene" uid="uid://3txm74cdosxb" path="res://Scenes/mafiatyyppi.tscn" id="3_r7tgo"]
+[ext_resource type="PackedScene" uid="uid://cf8w7kayhnajr" path="res://Scenes/coin.tscn" id="6_1wifb"]
+
+[sub_resource type="Curve" id="Curve_vpv53"]
+_limits = [0.5, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 1), -0.0921139, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_djnyb"]
+distance = -72.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsrvg"]
+size = Vector2(352.25, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x035l"]
+size = Vector2(546.375, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2hbp"]
+size = Vector2(459.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghftf"]
+size = Vector2(298.375, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ks4m"]
+size = Vector2(196.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fuui"]
+size = Vector2(181.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i32ob"]
+size = Vector2(245, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_877x2"]
+size = Vector2(310.5, 12.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yqw7"]
+size = Vector2(647.5, 14.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1spsa"]
+size = Vector2(22, 1090)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuo5w"]
+size = Vector2(3885.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7481a"]
+size = Vector2(43.5, 1173)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy5r5"]
+size = Vector2(22, 145)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4tkr"]
+size = Vector2(15, 167)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_dtpvx")]
+position = Vector2(1399, 499)
+scale = Vector2(4, 4)
+dash_curve = SubResource("Curve_vpv53")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
+position = Vector2(-2.26498e-06, 1.54972e-06)
+zoom = Vector2(2, 2)
+limit_left = -1341
+limit_top = -223
+limit_right = 2506
+limit_bottom = 868
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Stage" type="StaticBody2D" parent="."]
+show_behind_parent = true
+light_mask = 512
+visibility_layer = 512
+position = Vector2(518, 899)
+collision_mask = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(-20, -124)
+shape = SubResource("WorldBoundaryShape2D_djnyb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stage"]
+show_behind_parent = true
+position = Vector2(65, -576)
+texture = ExtResource("2_yqit6")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(-535.875, -338)
+shape = SubResource("RectangleShape2D_vsrvg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(339.813, -368)
+shape = SubResource("RectangleShape2D_x035l")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(-151.25, -211)
+shape = SubResource("RectangleShape2D_a2hbp")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(851.813, -346)
+shape = SubResource("RectangleShape2D_ghftf")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(-1244.25, -288)
+shape = SubResource("RectangleShape2D_8ks4m")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(1089.25, -331)
+shape = SubResource("RectangleShape2D_3fuui")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(1339.5, -288)
+shape = SubResource("RectangleShape2D_i32ob")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(-994.75, -284.375)
+shape = SubResource("RectangleShape2D_877x2")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(-1172.25, -176)
+shape = SubResource("RectangleShape2D_3yqw7")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(1999, -581)
+shape = SubResource("RectangleShape2D_1spsa")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(66.75, -1127)
+shape = SubResource("RectangleShape2D_yuo5w")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(-1877.25, -596.5)
+shape = SubResource("RectangleShape2D_7481a")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(-370, -275.5)
+shape = SubResource("RectangleShape2D_uy5r5")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Stage"]
+visible = false
+position = Vector2(74.5, -285.5)
+shape = SubResource("RectangleShape2D_j4tkr")
+
+[node name="mafia1" parent="." instance=ExtResource("3_r7tgo")]
+position = Vector2(859, 491)
+upperBoundary = 1130.0
+lowerBoundary = 585.0
+
+[node name="mafia2" parent="." instance=ExtResource("3_r7tgo")]
+position = Vector2(-1138, 797)
+upperBoundary = -330.0
+lowerBoundary = -1801.8
+
+[node name="mafia3" parent="." instance=ExtResource("3_r7tgo")]
+position = Vector2(368, 648)
+upperBoundary = 585.0
+lowerBoundary = 155.0
+
+[node name="Area2D" parent="." instance=ExtResource("6_1wifb")]
+position = Vector2(-468, 563)
+
+[node name="Area2D2" parent="." instance=ExtResource("6_1wifb")]
+position = Vector2(-4, 477)
+
+[node name="Area2D3" parent="." instance=ExtResource("6_1wifb")]
+position = Vector2(631, 573)
+
+[node name="Area2D4" parent="." instance=ExtResource("6_1wifb")]
+position = Vector2(810, 482)
+
+[node name="Area2D5" parent="." instance=ExtResource("6_1wifb")]
+position = Vector2(2459, -172)
+
+[node name="Area2D6" parent="." instance=ExtResource("6_1wifb")]
+position = Vector2(-1262, 803)
+
+[node name="Area2D7" parent="." instance=ExtResource("6_1wifb")]
+position = Vector2(-728, 668)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1256.0
+offset_top = 367.0
+offset_right = 1538.0
+offset_bottom = 416.0
+text = "Collect all the coins to win the game, 
+but avoid dying to the mob!"
